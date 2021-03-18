@@ -19,19 +19,20 @@ public class StepDefinition {
     System.out.println("Navigate to login url");
   }
   
-  @When("^User login into application with username and password$")
-  public void login() {
+  @When("^User login into application with username \"([^\"]*)\" and password \"([^\"]*)\"$")
+  public void login(String user, String password) {
     //code to login using username and password
-    System.out.println("user logins successfully");
+    System.out.println(String.format("user logins %s/%s successfully",user,password));
   }
   @Then("^Home page is populated$")
   public void home_page_is_populated()  {
       System.out.println("Validated homepage");
   }
 
-  @And("^Cars are displayed$")
-  public void cars_are_displayed()  {
-    System.out.println("Validated cards");
+ 
+  @And("^Cars displayed are \"([^\"]*)\"$")
+  public void cars_displayed_are_something(String isDisplayed) throws Throwable {
+      System.out.println(String.format("Cars displayed are %s", isDisplayed));
   }
 
 }
