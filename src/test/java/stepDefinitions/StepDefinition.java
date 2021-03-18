@@ -1,7 +1,10 @@
 package stepDefinitions;
 
+import java.util.List;
+
 import org.junit.runner.RunWith;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -34,5 +37,19 @@ public class StepDefinition {
   public void cars_displayed_are_something(String isDisplayed) throws Throwable {
       System.out.println(String.format("Cars displayed are %s", isDisplayed));
   }
-
+  
+  @When("^User sign up with following details$")
+  public void user_sign_up_with_following_details(DataTable data) throws Throwable {
+      List<List<String>> obj = data.asLists();
+      System.out.println(obj.get(0).get(0));
+      System.out.println(obj.get(0).get(1));
+      System.out.println(obj.get(0).get(2));
+      System.out.println(obj.get(0).get(3));
+      System.out.println(obj.get(0).get(4));
+  }
+  
+  @When("^User logins into application with username (.+) and password (.+)$")
+  public void user_login_into_application_with_username_and_password(String username, String password) throws Throwable {
+      System.out.println(String.format("Logging in user %s with pass %s", username, password));
+  }
 }
