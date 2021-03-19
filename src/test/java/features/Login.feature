@@ -1,19 +1,25 @@
 Feature: Application Login
 
+Background:
+Given validate the browser
+When browser is triggerd
+Then check if the browser is started
 
-
+@RegTest @SmokeTest
 Scenario: Home Page default login
 Given User is on landing page
 When User login into application with username "omar" and password "123"
 Then Home page is populated
 And Cars displayed are "true"
 
+@MobileTest
 Scenario: Home Page default login
 Given User is on landing page
 When User login into application with username "alan" and password "456"
 Then Home page is populated
 And Cars displayed are "false"
 
+@SmokeTest
 Scenario: Home Page default login
 Given User is on landing page
 When User sign up with following details
@@ -21,7 +27,7 @@ When User sign up with following details
 Then Home page is populated
 And Cars displayed are "false"
 
-
+@MobileTest
 Scenario Outline: Home Page default login
 Given User is on landing page
 When User logins into application with username <Username> and password <password>

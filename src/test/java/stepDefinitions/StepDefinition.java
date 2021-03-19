@@ -52,4 +52,19 @@ public class StepDefinition {
   public void user_login_into_application_with_username_and_password(String username, String password) throws Throwable {
       System.out.println(String.format("Logging in user %s with pass %s", username, password));
   }
+  
+  @Given("^validate the browser$")
+  public void validate_the_browser() throws Throwable {
+      System.out.println("validate browser");
+  }
+
+  @When("^browser is triggerd$")
+  public void browser_is_triggerd() throws Throwable {
+      System.out.println("trigger browser open");
+  }
+
+  @Then("^check if the browser is started$")
+  public void check_if_the_browser_is_started() throws Throwable {
+      System.out.println("browser is started");
+  }
 }
