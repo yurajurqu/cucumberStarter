@@ -1,9 +1,9 @@
 Feature: Application Login
 
-Background:
-Given validate the browser
-When browser is triggerd
-Then check if the browser is started
+#Background:
+#Given validate the browser
+#When browser is triggerd
+#Then check if the browser is started
 
 @RegTest @SmokeTest
 Scenario: Home Page default login
@@ -27,7 +27,7 @@ When User sign up with following details
 Then Home page is populated
 And Cars displayed are "false"
 
-@MobileTest
+@MobilesTest
 Scenario Outline: Home Page default login
 Given User is on landing page
 When User logins into application with username <Username> and password <password>
