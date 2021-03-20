@@ -12,7 +12,6 @@ public class HomePage {
     this.driver = driver;
   }
   By search=   By.xpath("//input[@type='search']");
-  
   public WebElement getSearch() {
     return this.driver.findElement(search);
   }

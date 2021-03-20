@@ -63,5 +63,6 @@ public class MyStepDefinitions{
   public void user_searched_for_vegetable(String search) throws Throwable {
       h = new HomePage(driver);
       h.getSearch().sendKeys(search);
+      Thread.sleep(3000);
   }
 }

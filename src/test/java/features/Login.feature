@@ -5,7 +5,7 @@ Feature: Application Login
 #When browser is triggerd
 #Then check if the browser is started
 
-@RegTest @SmokeTest
+@RegTest 
 Scenario: Home Page default login
 Given User is on landing page
 When User login into application with username "omar" and password "123"
@@ -19,7 +19,7 @@ When User login into application with username "alan" and password "456"
 Then Home page is populated
 And Cars displayed are "false"
 
-@SmokeTest
+
 Scenario: Home Page default login
 Given User is on landing page
 When User sign up with following details

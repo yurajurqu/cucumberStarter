@@ -7,10 +7,8 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/java/features",
-tags="@SeleniumTest",
+tags="@RegressionTest",
 glue="stepDefinitions",monochrome=true
 ,plugin= {"pretty","html:target/cucumber.html","json:target/cucumber.json","junit:target/cucumber.xml"})
 public class TestRunner {
-
-  
 }

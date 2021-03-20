@@ -18,4 +18,12 @@ public class Hooks extends Base{
   public void afterSelenium() {
     driver.close();
   }
+  @After("@SmokeTest")
+  public void afterSeleniumSmokeTest() {
+    driver.close();
+  }
+  @After("@RegressionTest")
+  public void afterSeleniumRegTest() {
+    driver.close();
+  }
 }
