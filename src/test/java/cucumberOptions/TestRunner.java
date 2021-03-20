@@ -6,7 +6,10 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/java/features",glue="stepDefinitions",tags= "@MobileTest")
+@CucumberOptions(features="src/test/java/features",
+tags="@SeleniumTest",
+glue="stepDefinitions",monochrome=true
+,plugin= {"pretty","html:target/cucumber.html","json:target/cucumber.json","junit:target/cucumber.xml"})
 public class TestRunner {
 
   
