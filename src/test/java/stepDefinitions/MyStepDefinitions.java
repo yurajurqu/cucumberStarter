@@ -11,10 +11,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjects.HomePage;
 
-public class MyStepDefinitions {
+public class MyStepDefinitions{
 
   public WebDriver driver;
+  HomePage h;
   
   @Given("^User is on GreenKart Landing page$")
   public void user_is_on_greenkart_landing_page() throws Throwable {
@@ -24,8 +26,9 @@ public class MyStepDefinitions {
 
   @When("^User searched for \"([^\"]*)\" Vegetable$")
   public void user_searched_for_something_vegetable(String searchString) throws Throwable {
-      driver.findElement(By.xpath("//input[@type='search']")).sendKeys(searchString);
-      Thread.sleep(3000);
+    h = new HomePage(driver);
+    h.getSearch().sendKeys(searchString);
+    Thread.sleep(3000);
   }
 
   @Then("^\"([^\"]*)\" results are displayed$")
@@ -50,5 +53,15 @@ public class MyStepDefinitions {
     driver.findElement(By.cssSelector("a.cart-icon")).click();
     Thread.sleep(3000);
     driver.findElement(By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]")).click();
+  }
+  
+  @Then("^verify that selected (.+) items are displayed in the checkout page$")
+  public void verify_selected_items_are_displayed_in_the_checkout_page(String search) throws Throwable {
+      assertTrue(driver.findElement(By.cssSelector("p.product-name")).getText().contains(search));
+  }
+  @When("^User did search for (.+) Vegetable$")
+  public void user_searched_for_vegetable(String search) throws Throwable {
+      h = new HomePage(driver);
+      h.getSearch().sendKeys(search);
   }
 }
